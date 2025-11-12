@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Regla de 3</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #eef6fa;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    color: #004d80;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #999;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  h2 {
+    color: #004d80;
+  }
+  button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #004d99;
+  }
+  input {
+    width: 90px;
+    padding: 6px;
+    margin: 5px;
+    text-align: center;
+  }
+  .resultado {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #222;
+    font-size: 17px;
+  }
+  ul {
+    text-align: left;
+    margin: 10px auto;
+    max-width: 400px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Regla de 3</h1>
+
+<div class="card">
+  <h2>Qué es</h2>
+  <p>La regla de 3 sirve para encontrar un valor desconocido cuando dos cantidades tienen la misma relación. Es una forma sencilla de resolver proporciones.</p>
+  <p>Ejemplo: si 4 manzanas cuestan 20 pesos, ¿cuánto costarán 6 manzanas?</p>
+</div>
+
+<div class="card">
+  <h2>Fórmula</h2>
+  <p>Si A se relaciona con B, y C se relaciona con X, se usa la fórmula:</p>
+  <p style="font-size: 20px;"><b>X = (B × C) ÷ A</b></p>
+  <p>Se multiplica en cruz y se divide entre A.</p>
+</div>
+
+<div class="card">
+  <h2>Calculadora</h2>
+  <p>Escribe los valores:</p>
+  <input type="number" id="A" placeholder="A (ej. 4)">
+  <input type="number" id="B" placeholder="B (ej. 20)">
+  <input type="number" id="C" placeholder="C (ej. 6)">
+  <br>
+  <button onclick="calcular()">Calcular</button>
+  <div class="resultado" id="resultado"></div>
+  <p>Ejemplo: A = 4, B = 20, C = 6. Resultado: 30.</p>
+</div>
+
+<div class="card">
+  <h2>Resumen</h2>
+  <ul>
+    <li>Compara dos relaciones: A con B, y C con X.</li>
+    <li>Usa la fórmula X = (B × C) ÷ A.</li>
+    <li>Se aplica en precios, tiempo, distancias o recetas.</li>
+  </ul>
+</div>
+
+<script>
+function calcular() {
+  let A = parseFloat(document.getElementById('A').value);
+  let B = parseFloat(document.getElementById('B').value);
+  let C = parseFloat(document.getElementById('C').value);
+  
+  if (isNaN(A) || isNaN(B) || isNaN(C) || A === 0) {
+    document.getElementById('resultado').innerText = "Por favor escribe bien los tres valores.";
+  } else {
+    let X = (B * C) / A;
+    document.getElementById('resultado').innerText = "El valor de X es: " + X.toFixed(2);
+  }
+}
+</script>
+
+</body>
+</html>
